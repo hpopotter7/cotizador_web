@@ -79,9 +79,9 @@
 						<td class="col-xs-2"><? echo $tipo_contenedor; ?></td>
 						<td class="col-xs-2">
 							<div class="pull-right dimensiones">
-							<input type="text" class="form-control" style="width:30%; margin-left:5px;text-align:right" id='alto' placeholder='Alto' >							
-							<input type="text" class="form-control" style="width:30%; margin-left:5px;text-align:right" id='ancho' placeholder='Ancho' >
-							<input type="text" class="form-control" style="width:30%; margin-left:5px;text-align:right" id='largo' placeholder='Largo' >
+							<input type="text" class="form-control" style="width:30%; margin-left:5px;text-align:right" id="alto_<? echo $id_producto; ?>" placeholder='Alto' >							
+							<input type="text" class="form-control" style="width:30%; margin-left:5px;text-align:right" id="ancho_<? echo $id_producto; ?>" placeholder='Ancho' >
+							<input type="text" class="form-control" style="width:30%; margin-left:5px;text-align:right" id="largo_<? echo $id_producto; ?>" placeholder='Largo' >
 							</div>
 						</td>
 
@@ -93,7 +93,7 @@
 						<input type="text" class="form-control" style="text-align:right" id="precio_venta_<? echo $id_producto; ?>"  value="<? echo $precio_venta;?>" >
 						</div></td> -->
 						<? 
-						$array=[$nombre_producto, $material_primario, $material_especifico, $tipo_contenedor];
+						$array=[$nombre_producto, $material_primario, $material_especifico, $tipo_contenedor, $id_producto];
 						$json = json_encode($array);?>
 						<td ><span class="pull-right"><a href="#" onclick='añadir(<?php echo $json; ?>)'><i class="fa fa-plus"></i></a></span></td>
 						

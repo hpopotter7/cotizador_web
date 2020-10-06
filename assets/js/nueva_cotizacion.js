@@ -49,12 +49,7 @@
 					success: function(datos){
 					$("#resultados").html(datos);
 				  }
-			});
-		  event.preventDefault();
-  
-  
-			
-			
+			});			
 	 	});
 
 		function load(page){
@@ -78,12 +73,16 @@
 			$("#combo_material_primario").val(datos[1]);
 			$("#combo_material_especifico").val(datos[2]);
 			$("#combo_tipo_contenedor").val(datos[3]);
-			
-			//$("#help_caracteristicas").html("Al: "+$("#alto").val()+"mm x An: "+$("#ancho").val()+"mm x La: "+$("#largo").val()+"mm");
+			var id=datos[4];
+			var alto=document.getElementById('alto_'+id).value;
+			var ancho=document.getElementById('ancho_'+id).value;
+			var largo=document.getElementById('largo_'+id).value;
+			var html="Al: "+alto+"mm x An: "+ancho+"mm x La: "+largo+"mm";
+			$("#help_caracteristicas").html(html);
+			$('.close').click();
 		}
 
-	function agregar (id)
-		{
+	/* function agregar (id){
 			var precio_venta=document.getElementById('precio_venta_'+id).value;
 			var descuento=document.getElementById('descuento_'+id).value;
 			var cantidad=document.getElementById('cantidad_'+id).value;
@@ -122,54 +121,47 @@
 		$("#resultados").html(datos);
 		}
 			});
-		}
+		} */
 		
-			function eliminar (id)
-		{
-			var moneda=$("#moneda").val();
-			var tax=$("#taxes").val();
-			$.ajax({
-        type: "GET",
-        url: "./ajax/agregar_cotizador.php",
-        data: "id="+id+"&moneda="+moneda+'&tax='+tax,
-		 beforeSend: function(objeto){
-			$("#resultados").html("Mensaje: Cargando...");
-		  },
-        success: function(datos){
-		$("#resultados").html(datos);
-		}
-			});
-
-		}
+			function eliminar (id){
+				var moneda=$("#moneda").val();
+				var tax=$("#taxes").val();
+				$.ajax({
+					type: "GET",
+					url: "./ajax/agregar_cotizador.php",
+					data: "id="+id+"&moneda="+moneda+'&tax='+tax,
+					beforeSend: function(objeto){
+						$("#resultados").html("Mensaje: Cargando...");
+					},
+					success: function(datos){
+					$("#resultados").html(datos);
+					}
+				});
+			}
 		
-		$("#datos_cotizacion").submit(function(){
-			
-		  
-	 	});
-
+			/*
 			$(function() {
-						$("#nombre_cliente").autocomplete({
-							source: "./ajax/autocomplete/clientes.php",
-							minLength: 2,
-							select: function(event, ui) {
-								event.preventDefault();
-								$('#id_cliente').val(ui.item.id_cliente);
-								$('#nombre_cliente').val(ui.item.nombre_cliente);
-								$('#tel1').val(ui.item.movil);
-								$('#atencion').val(ui.item.contacto);
-								$('#empresa').val(ui.item.nombre_comercial);
-								$('#tel2').val(ui.item.fijo);
-								$('#email').val(ui.item.email);
-								$('#email_contact').val("");
-								
-								get_contact(ui.item.id_cliente);
-							 }
-						});
-						 
+				$("#nombre_cliente").autocomplete({
+					source: "./ajax/autocomplete/clientes.php",
+					minLength: 2,
+					select: function(event, ui) {
+						event.preventDefault();
+						$('#id_cliente').val(ui.item.id_cliente);
+						$('#nombre_cliente').val(ui.item.nombre_cliente);
+						$('#tel1').val(ui.item.movil);
+						$('#atencion').val(ui.item.contacto);
+						$('#empresa').val(ui.item.nombre_comercial);
+						$('#tel2').val(ui.item.fijo);
+						$('#email').val(ui.item.email);
+						$('#email_contact').val("");
 						
-					});
+						get_contact(ui.item.id_cliente);
+						}
+				});
+			});
+			*/
 					
-	$("#nombre_cliente" ).on( "keydown", function( event ) {
+	/* $("#nombre_cliente" ).on( "keydown", function( event ) {
 						if (event.keyCode== $.ui.keyCode.LEFT || event.keyCode== $.ui.keyCode.RIGHT || event.keyCode== $.ui.keyCode.UP || event.keyCode== $.ui.keyCode.DOWN || event.keyCode== $.ui.keyCode.DELETE || event.keyCode== $.ui.keyCode.BACKSPACE )
 						{
 							$("#id_cliente" ).val("");
@@ -191,11 +183,12 @@
 							$("#email" ).val("");
 							$('#email_contact').val("");
 						}
-			});				
+			}); */				
 
 			function get_contact(id_cliente){
 				$("#atencion" ).load( "ajax/contactos_clientes.php?id_cliente="+id_cliente );
 			}
+
 			$('#atencion').on('change', function(e){ 
 				var telefono = $(this).find("option:selected").data('telefono'); 
 				var email_contact = $(this).find("option:selected").data('email'); 
@@ -226,8 +219,6 @@
 	  modal.find('.modal-body #precio_item').val(precio)
 	  modal.find('.modal-body #descuento_item').val(descuento)
 	  modal.find('.modal-body #id_tmp').val(id)
-	  
-	  
 	})
 	
 	
@@ -255,9 +246,7 @@
 		});		
 	 event.preventDefault();
 	})
-	
-	
-	
+		
 		function descargar(id){
 		 VentanaCentrada('ver_cotizacion.php?id='+id,'Cotizacion','','1024','768','true');
 	 	}
@@ -358,6 +347,16 @@
 			onStepChanged: function(event, currentIndex) {
 				//alert("ads");
 			  }
+		});
+
+		$("#combo_tintas").change(function (){
+			var valor=$(this).val();
+			if(valor!="vacio"){
+				if(valor!="0"){
+					alert("preguntar el tipo de color pantone o rgb");
+				}
+			}
+			
 		});
 
 		$("#combo_componentes").change(function (){

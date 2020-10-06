@@ -1473,7 +1473,7 @@ body.swal2-no-backdrop .swal2-shown {
 	<script src="assets/plugins/sweetalert/sweetalert.min.js"></script>	<script src="assets/plugins/moment/moment.js"></script>
 	<script src="assets/plugins/daterangepicker/daterangepicker.js"></script>
     <script type="text/javascript" src="assets/js/VentanaCentrada.js"></script>
-	<script type="text/javascript" src="assets/js/cotizaciones2.js"></script>
+	<script type="text/javascript" src="assets/js/cotizaciones.js"></script>
 	
  
 

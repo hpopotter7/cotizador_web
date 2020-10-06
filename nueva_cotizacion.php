@@ -1169,7 +1169,14 @@ body.swal2-no-backdrop .swal2-shown {
             transform: rotate(0deg); }
   100% {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg); } }</style></head>
+            transform: rotate(360deg); } }
+.clearfix{
+    margin-bottom:15px;
+}            
+.row{
+  margin-left: 5px !important;
+}
+</style></head>
 
 <body class="fix-header card-no-border" cz-shortcut-listen="true">
     <!-- ============================================================== -->
@@ -1525,124 +1532,188 @@ body.swal2-no-backdrop .swal2-shown {
 				<div class="row">
                     <div class="col-md-12">
                         <div class="card card-body printableArea">
-                            <h3>COTIZACIÓN
-                              <b>
-                              <?php
-                              $result = $con->query("SET NAMES 'utf8'");
-                              $sql="SELECT max(id_cotizacion) as cont FROM cotizaciones_demo ";
-                              if ($result = $con->query($sql)) {
-                                  while ($row = $result->fetch_row()) {
-                                    $contador=$row[0];
-                                  }
-                                  /* cerramos la conexion */
-                                  $result->close();
-                                  echo $contador++;
-                              }
-/*
-                                        $sql="SELECT max(id_cotizacion) as cont FROM cotizaciones_demo ";
-                                        $query = mysqli_query($con, $sql);
-                                        while ($row=mysqli_fetch_array($query)){
-                                            $contador=$row['cont'];                                            
-                                    ?>
-                                            #<? echo $contador++; ?>
-                                            <?php
-                                            }
-                                            ?>
-                                            */
-                                            ?>
-                              </b>
-                            </h3>
-                            <hr>
+                                                     
 							 							
 							<form class="needs-validations" id="datos_cotizacion">
-							
-							<div class="row">
-								<div class="col-md-3">
-
-                <input type="checkbox" checked data-toggle="toggle" data-on="Clientes" data-off="Prospectos" data-onstyle="outline-info" data-offstyle="outline-dark" checked>
-                  
-								  <!-- <input type="text" class="form-control ui-autocomplete-input" id="nombre_cliente" placeholder="Selecciona al cliente" required="" autocomplete="off"> -->
-                  <!-- <input id="id_cliente" name="id_cliente" type="hidden" value=""> -->
-                  <select name="combo_clientes" id="combo_clientes" class='form-control'>
-                  <option value=''>Selecciona...</option>
+							<fieldset>
+              <legend style='height:50px'><h3>Información General <label class='float-right'>COTIZACIÓN
+                  <b>
                   <?php
-                                        $sql="SELECT id_cliente, Razon_Social FROM clientes where Estatus='activo' order by Razon_Social asc";
-                                        $query = mysqli_query($con, $sql);
-                                        while ($row=mysqli_fetch_array($query)){
-                                            $id_cliente=$row['id_cliente'];
-                                            $nombre=$row['Razon_Social'];
-                                    ?>
-                                            <option value='<? echo $nombre; ?>'><? echo $nombre; ?></option>
-                                            <?php
-                                            }
-                                            ?>
+                  $result = $con->query("SET NAMES 'utf8'");
+                  $sql="SELECT max(id_cotizacion) as cont FROM cotizaciones_demo ";
+                  if ($result = $con->query($sql)) {
+                      while ($row = $result->fetch_row()) {
+                        $contador=$row[0];
+                      }
+                      /* cerramos la conexion */
+                      $result->close();
+                      echo $contador++;
+                  }
+                    ?>
+                  </b>
+                </label></h3>  </legend>
+                <hr>
+                
+                <div class="row">
+                  <div class="col-md-3">
+                    <!--
+                  <label>Clientes/Prostecto</label><br>
+                  <input type="checkbox" checked data-toggle="toggle" data-on="Clientes" data-off="Prospectos" data-onstyle="info" data-offstyle="dark" checked>-->
                   
-
-                  </select>
-									<div class="invalid-feedback">
-                                         Debes seleccionar el cliente.
-                                    </div>
-								</div>
-								
-								<div class="col-md-2">
-									<label>Contacto</label>	
-									<input type="text" class="form-control " id="contacto" placeholder="" value="" readonly="">
-								
-								</div>
-								<div class="col-md-2">
-									<label>Teléfono de contacto</label>	
-									<input type="text" class="form-control " id="tel1" placeholder="" value="" readonly="">	
-									
-								</div>
-								
-								<div class="col-md-2">
-									<label>E-mail de contacto</label>	
-									<input type="text" class="form-control " id="email_contact" placeholder="" value="" readonly="">
-									
+                  <input type="radio" id="r_clientes" name="gender" value="clientes">
+                  <label for="r_clientes" style="margin-right:18px;">Clientes</label>
+                  <input type="radio" id="r_prospectos" name="gender" value="prospectos">
+                  <label for="r_prospectos">Prospectos</label>
+                  
+                    <!-- <input type="text" class="form-control ui-autocomplete-input" id="nombre_cliente" placeholder="Selecciona al cliente" required="" autocomplete="off"> -->
+                    <!-- <input id="id_cliente" name="id_cliente" type="hidden" value=""> -->
+                    <select name="combo_clientes" id="combo_clientes" class='form-control' style='width:99%'>
+                    <option value=''>Selecciona...</option>
+                    <?php
+                    $sql="SELECT id_cliente, Razon_Social FROM clientes where Estatus='activo' order by Razon_Social asc";
+                    $query = mysqli_query($con, $sql);
+                    while ($row=mysqli_fetch_array($query)){
+                        $id_cliente=$row['id_cliente'];
+                        $nombre=$row['Razon_Social'];
+                    ?>
+                    <option value='<? echo $nombre; ?>'><? echo $nombre; ?></option>
+                    <?php
+                    }
+                    ?>
+                    </select>
+                  </div>
+                  
+                  <div class="col-md-2">
+                    <label>Contacto</label>	
+                    <input type="text" class="form-control " id="contacto" placeholder="" value="" readonly="">
+                  
+                  </div>
+                  <div class="col-md-2">
+                    <label>Teléfono de contacto</label>	
+                    <input type="text" class="form-control " id="tel1" placeholder="" value="" readonly="">	
+                    
+                  </div>
+                  
+                  <div class="col-md-2">
+                    <label>E-mail de contacto</label>	
+                    <input type="text" class="form-control " id="email_contact" placeholder="" value="" readonly="">
+                    
+                  </div>
+                  <div class="col-md-2">
+                    <label>Moneda</label>
+                    <select name="moneda" id="moneda" class="form-control input-sm">
+                    <?php
+                      $sql="SELECT * FROM  monedas order by id_moneda asc";
+                      $query = mysqli_query($con, $sql);
+                      while ($row=mysqli_fetch_array($query)){
+                          $id_moneda=$row['id_moneda'];
+                          $nombre=$row['Nombre'];
+                    ?>
+                      <option value=''><? echo $nombre; ?></option>
+                      <?php
+                      }
+                      ?>
+                    </select>
+                  </div>
                 </div>
+                <div class="clearfix"></div>
+                <div class="row">
+                  <div class="col-md-2">
+                    <label>Condiciones de pago</label>
+                    <select name="combo_condiciones" id="combo_condiciones" class='form-control'>
+                      <option value="">Selecciona...</option>
+                      <option value="contado">Contado</option>
+                      <option value="15">Credito 15 días</option>
+                      <option value="30">Credito 30 días</option>
+                      <option value="45">Credito 45 días</option>
+                      <option value="60">Credito 60 días</option>
+                    </select>
+                  </div>
+                  <div class="col-md-2">
+                    <label>Validéz de la cotización</label>
+                    <input type="text" class="form-control" id="validez" name="validez" placeholder="Validéz de la cotización" value="" required="">
+                  </div>
+                  <div class="col-md-2">
+                    <label>Tiempo de entrega</label>
+                    <input type="text" class="form-control" id="entrega" name="entrega" placeholder="Tiempo de entrega" value="" required="">
+                  </div>
+                  <div class="col-md-2">
+                    <label>Ubicación</label>
+                    <select name="estado" class='form-control'>
+                      <option value="vacio">Seleccione uno...</option>
+                      <option value="Aguascalientes">Aguascalientes</option>
+                      <option value="Baja California">Baja California</option>
+                      <option value="Baja California Sur">Baja California Sur</option>
+                      <option value="Campeche">Campeche</option>
+                      <option value="Chiapas">Chiapas</option>
+                      <option value="Chihuahua">Chihuahua</option>
+                      <option value="CDMX">Ciudad de México</option>
+                      <option value="Coahuila">Coahuila</option>
+                      <option value="Colima">Colima</option>
+                      <option value="Durango">Durango</option>
+                      <option value="Estado de México">Estado de México</option>
+                      <option value="Guanajuato">Guanajuato</option>
+                      <option value="Guerrero">Guerrero</option>
+                      <option value="Hidalgo">Hidalgo</option>
+                      <option value="Jalisco">Jalisco</option>
+                      <option value="Michoacán">Michoacán</option>
+                      <option value="Morelos">Morelos</option>
+                      <option value="Nayarit">Nayarit</option>
+                      <option value="Nuevo León">Nuevo León</option>
+                      <option value="Oaxaca">Oaxaca</option>
+                      <option value="Puebla">Puebla</option>
+                      <option value="Querétaro">Querétaro</option>
+                      <option value="Quintana Roo">Quintana Roo</option>
+                      <option value="San Luis Potosí">San Luis Potosí</option>
+                      <option value="Sinaloa">Sinaloa</option>
+                      <option value="Sonora">Sonora</option>
+                      <option value="Tabasco">Tabasco</option>
+                      <option value="Tamaulipas">Tamaulipas</option>
+                      <option value="Tlaxcala">Tlaxcala</option>
+                      <option value="Veracruz">Veracruz</option>
+                      <option value="Yucatán">Yucatán</option>
+                      <option value="Zacatecas">Zacatecas</option>
+                  </select>
+                  </div>
+                  <div class="col-md-1">
+                    <label for=""># Revisión</label>
+                        <input type="text" class='form-control' placeholder='# revision'>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="">Existe plano</label>
+                        <input type="checkbox" class='form-control' checked>
+                  </div>
+                  <div class="col-md-1">
+                    <label for="">Existe muestra</label>
+                        <input type="checkbox" class='form-control' checked>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="row">
                 <div class="col-md-2">
-									<label>Moneda</label>
-									<select name="moneda" id="moneda" class="form-control input-sm">
-                  <?php
-                                        $sql="SELECT * FROM  monedas order by id_moneda asc";
-                                        $query = mysqli_query($con, $sql);
-                                        while ($row=mysqli_fetch_array($query)){
-                                            $id_moneda=$row['id_moneda'];
-                                            $nombre=$row['Nombre'];
-                                    ?>
-                                            <option value=''><? echo $nombre; ?></option>
-                                            <?php
-                                            }
-                                            ?>
-																					</select>
-								</div>
-							</div>
-							
-                            <div class="row">
-								<div class="col-md-2">
-									<label>Condiciones de pago</label>
-									<select name="combo_condiciones" id="combo_condiciones" class='form-control'>
-                    <option value="">Selecciona...</option>
-                    <option value="contado">Contado</option>
-                    <option value="15">Credito 15 días</option>
-                    <option value="30">Credito 30 días</option>
-                    <option value="45">Credito 45 días</option>
-                    <option value="60">Credito 60 días</option>
-                  </select>
-								</div>
-								<div class="col-md-2">
-									<label>Validéz de la cotización</label>
-									<input type="text" class="form-control" id="validez" name="validez" placeholder="Validéz de la cotización" value="" required="">
-								</div>
-								<div class="col-md-2">
-									<label>Tiempo de entrega</label>
-									<input type="text" class="form-control" id="entrega" name="entrega" placeholder="Tiempo de entrega" value="" required="">
+                    <label for="">Periodos de entrega</label>
+                        <select name="" class='form-control' id="">
+                          <option value="vacio">Selecciona...</option>
+                          <option value="diaria">Diaria</option>
+                          <option value="semanal">Semanal</option>
+                          <option value="quincenal">Quincenal</option>
+                          <option value="mensual">Mensual</option>
+                        </select>
+                  </div>
+                  <div class="col-md-2">
+                  <label for="">Ventanas</label>
+                  <input type="text" class='form-control' placeholder='Ventanas'>
+                  </div>
+                  <div class="col-md-2">
+                    <label for="exampleSelectMultiple">Consumo mensual (piezas)</label>
+                    <input type="number" class='form-control' min='1' name="" id="" step="1" value="1" >
+                  </div>
+                  <div class="col-md-4">
+                    <label for="">Comentarios</label>
+                        <textarea name="" id="" rows="1" class='form-control'></textarea>
+                  </div>
                 </div>
-                <div class="col-md-5">
-									<label>Comentarios</label>
-									<input type="text" class="form-control " id="notas" name="notas" placeholder="Comentarios">
-								</div>
-							</div>
+              </fieldset>
 
 							<hr>
 							<div class="row">
@@ -1666,26 +1737,7 @@ body.swal2-no-backdrop .swal2-shown {
 							</div>
               
               <div class="container">
-                <!-- <div class="tab">
-                  <button class="tablinks" onclick="openCity(event, 'tab1')"> Componente</button>
-                  <button class="tablinks" onclick="openCity(event, 'tab2')">Tipo 2</button>
-                  <button class="tablinks" onclick="openCity(event, 'tab3')">tipo 3</button>
-                </div>
-                <div id="tab1" class="tabcontent">
-                  <h3>London</h3>
-                  <p>London is the capital city of England.</p>
-                </div>
-
-                <div id="tab2" class="tabcontent">
-                  <h3>Paris</h3>
-                  <p>Paris is the capital of France.</p> 
-                </div>
-
-                <div id="tab3" class="tabcontent">
-                  <h3>Tokyo</h3>
-                  <p>Tokyo is the capital of Japan.</p>
-                </div> -->
-                <div id="example-tabs" style="height:350px;border: khaki;border: 3px solid khaki;">
+                <div id="example-tabs" style="height:350px;border: darkslategray;border: 3px solid darkslategray;">
                   <h3><i class="fa fa-archive" aria-hidden="true"></i> Componentes</h3>
                   <section>
                     
@@ -1732,49 +1784,13 @@ body.swal2-no-backdrop .swal2-shown {
                         </select>
                       </div>
                       <div class="form-group"><br>
-                        <label for="exampleSelectMultiple">Consumo mensual (piezas)</label>
-                        <input type="number" class='form-control' min='1' name="" id="" step="1" value="1" >
-                      </div>
-                    </div>
-                    <div class="col-md-2">                  
-                      <div class="form-group">
-                        <label for="exampleSelectMultiple">Matierial específico</label>
-                        <select class="form-control" id="combo_material_especifico">
-                          <option value='vacio'>Selecciona...</option>
-                          <option value='sencillo'>Sencillo</option>
-                          <option value='doble'>Doble</option>
-                          <option value='triple'>Triple</option>
-                        </select>
-                        <div class="form-group"><br><br>
-                          <label for="exampleSelectMultiple">Largo Total (mm)</label>
+                      <label for="exampleSelectMultiple">Largo Total (mm)</label>
                           <input type="text" class='form-control' >
-                        </div>
                       </div>
                     </div>
                     <div class="col-md-2">                  
                       <div class="form-group">
-                        <label for="exampleSelectMultiple">Color</label>
-                        <input type="text" class='form-control'> 
-                        <div class="form-group"><br><br>
-                          <label for="exampleSelectMultiple">Ancho Total (mm)</label>
-                          <input type="text" class='form-control' >
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-2">                  
-                      <div class="form-group">
-                        <label for="exampleSelectMultiple">Resistencia/Grosor</label>
-                        <input type="text" class='form-control'> 
-                        <div class="form-group"><br><br>
-                          <label for="exampleSelectMultiple">M<sup>2</sup> x pieza</label>
-                          <input type="text" class='form-control' disabled="disabled" class='disabled' >
-                          <small id="help_caracteristicas" class="form-text text-muted">Costo proveedor x m2: $0.00</small>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-2">                  
-                      <div class="form-group">
-                        <label for="exampleSelectMultiple">Tipo de contenedor</label>
+                      <label for="exampleSelectMultiple">Tipo de contenedor</label>
                         <select class="form-control" id="combo_tipo_contenedor">
                           <option value='vacio'>Selecciona...</option>
                           <option value='regular_ranurada'>Regular ranurada</option>
@@ -1785,7 +1801,43 @@ body.swal2-no-backdrop .swal2-shown {
                           <option value='especial'>Especial</option>
                         </select>
                         <div class="form-group"><br><br>
+                        <label for="exampleSelectMultiple">Ancho Total (mm)</label>
+                          <input type="text" class='form-control' >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2">                  
+                      <div class="form-group">
+                      <label for="exampleSelectMultiple">Matierial específico</label>
+                        <select class="form-control" id="combo_material_especifico">
+                          <option value='vacio'>Selecciona...</option>
+                          <option value='sencillo'>Sencillo</option>
+                          <option value='doble'>Doble</option>
+                          <option value='triple'>Triple</option>
+                        </select>
+                        
+                        <div class="form-group"><br><br>
+                        <label for="exampleSelectMultiple">M<sup>2</sup> x pieza</label>
+                          <input type="text" class='form-control' disabled="disabled" class='disabled' >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2">                  
+                      <div class="form-group">
+                        <label for="exampleSelectMultiple">Resistencia/Grosor</label>
+                        <input type="text" class='form-control'> 
+                        <div class="form-group"><br><br>
                           <label for="exampleSelectMultiple">Consumo de material (M<sup>2</sup>)</label>
+                          <input type="text" class='form-control' disabled="disabled" class='disabled' >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2">                  
+                      <div class="form-group">
+                      <label for="exampleSelectMultiple">Color</label>
+                        <input type="text" class='form-control'> 
+                        <div class="form-group"><br><br>
+                          <label for="exampleSelectMultiple">Costo de material (M<sup>2</sup>)</label>
                           <input type="text" class='form-control' disabled="disabled" class='disabled' >
                         </div>
                       </div>
@@ -1794,49 +1846,45 @@ body.swal2-no-backdrop .swal2-shown {
                     </section>
                     <h3><i class="fa fa-cubes" aria-hidden="true"></i> Material complementario</h3>
                     <section>
+                     <div class='row' style="width: 100%;">
                       <div class="col-md-2">                  
-                        <div class="form-group">
-                          <label for="exampleSelectMultiple">Tipo de material</label>
-                          <select class="form-control" id="exampleSelectMultiple">
-                            <option value='vacio'>Selecciona...</option>
-                            <option value='silicon'>Silicon</option>
-                            <option value='blanco'>Blanco</option>
-                            <option value='velcro'>Velcro</option>
-                            <option value='lapiz'>Lapiz</option>
-                            <option value='cianocrilato'>Cianocrilato</option>
-                            <option value='acrilico'>Acrilico</option>
-                          </select>
-                        </div>
-                        <div class="form-group"><br><br>
-                          <label for="exampleSelectMultiple">Consumo de material (m2)</label>
-                          <input type="text" class='form-control' disabled="disabled" class='disabled' >
-                        </div>
+                          <div class="form-group">
+                            <label for="exampleSelectMultiple">Pegamento</label>
+                            <select class="form-control" id="exampleSelectMultiple">
+                              <option value='vacio'>Selecciona...</option>
+                              <option value='silicon'>Silicon</option>
+                              <option value='blanco'>Blanco</option>
+                              <option value='velcro'>Velcro</option>
+                              <option value='lapiz'>Lapiz</option>
+                              <option value='cianocrilato'>Cianocrilato</option>
+                              <option value='acrilico'>Acrilico</option>
+                            </select>
+                          </div>
                       </div>
                       <div class="col-md-2"> 
                         <div class="form-group">
                           <label for="exampleSelectMultiple">Tintas</label>
-                          <select class="form-control" id="exampleSelectMultiple">
-                            <option>Selecciona...</option>
-                            <option>0</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3 o más</option>
-                            <option>Ofset</option>
+                          <select class="form-control" id="combo_tintas">
+                            <option value='vacio'>Selecciona...</option>
+                            <option value='0'>0</option>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value=''>3 o más</option>
+                            <option value='ofset'>Ofset</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-md-2"> 
                         <div class="form-group">
-                          <label for="exampleSelectMultiple">Amarre</label>
-                          <select class="form-control" id="exampleSelectMultiple">
-                            <option>Selecciona...</option>
-                            <option>Fleje</option>
-                            <option>Lazo</option>
-                            <option>Emplaye</option>
-                            <option>cinta</option>
+                          <label for="exampleSelectMultiple">Tipo de tinta</label>
+                          <select class="form-control" id="combo_tintas" class='disabled' disabled='disabled'>
+                            <option value='vacio'>Selecciona...</option>
+                            <option value='pantone'>Pantone</option>
+                            <option value='rgb'>RGB</option>
                           </select>
                         </div>
                       </div>
+                     </div>
                     </section>
                     <h3><i class="fa fa-truck" aria-hidden="true"></i> Flete</h3>
                     <section>
