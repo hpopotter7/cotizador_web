@@ -20,13 +20,18 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="assets/css/colors/blue.css" id="theme" rel="stylesheet">
-	<link rel="icon" href="assets/images/cart_icon2.png">
+	  <link rel="icon" href="assets/images/cart_icon2.png">
 	 <!--alerts CSS -->
     <link href="assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"><!-- summernotes CSS -->
-<link href="assets/plugins/summernote/dist/summernote-bs4.css" rel="stylesheet">
-<link href="assets/css/normalize.css" rel="stylesheet">
-<link href="assets/css/main.css" rel="stylesheet">
-<link href="assets/css/jquery.steps.css" rel="stylesheet">
+    <link href="assets/plugins/summernote/dist/summernote-bs4.css" rel="stylesheet">
+    <link href="assets/css/normalize.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/jquery.steps.css" rel="stylesheet">
+    <!--<link href="assets/css/tootik.min.css" rel="stylesheet">-->
+    <link href="assets/css/protip.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/tooltipster/dist/css/tooltipster.bundle.css" />
+    <link rel="stylesheet" href="assets/tooltipster/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-borderless.min.css" />
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
       
 <!-- <link href="assets/css/estilos_tabs.css" rel="stylesheet"> -->
 
@@ -1181,7 +1186,7 @@ body.swal2-no-backdrop .swal2-shown {
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-		        <header class="topbar is_stuck" style="position: fixed; top: 0px; width: 1903px;">
+		        <header class="topbar is_stuck" style="display: inline !important;position: fixed; top: 0px; width: 1903px;">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- ============================================================== -->
                 <!-- Logo -->
@@ -1302,203 +1307,22 @@ body.swal2-no-backdrop .swal2-shown {
 				  <div class="modal-body">
 					<form class="form-horizontal">
 					  <div class="row">
-						<div class="col-sm-8">
-              <div class="input-group mb-3">
-                <input type="text" class="form-control" id="q" placeholder="Buscar productos" onkeyup="load(1)">
-                <div class="input-group-prepend">
-                
-                <button type="button" class="btn btn-outline-secondary" onclick="load(1)"><span class="fa fa-search"></span> Buscar</button>
-                </div>
-                
-              </div>						  
-						</div>
-						
-						
+              <div class="col-sm-8">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" id="q" placeholder="Buscar productos" onkeyup="load(1)">
+                  <div class="input-group-prepend">
+                  <button type="button" class="btn btn-outline-secondary" onclick="load(1)"><span class="fa fa-search"></span> Buscar</button>
+                  </div>
+                </div>						  
+              </div>						
 					  </div>
 					</form>
-					<div id="loader" style="position: absolute; text-align: center; top: 55px; width: 100%;"></div><!-- Carga gif animado -->
-					<div class="outer_div">			<div class="table-responsive">
-			  <table class="table">
-				<tbody><tr class="warning">
-					<th>Código</th>
-					<th>Producto</th>
-					<th class="text-right">Cant.</th>
-					<th class="text-right">% Desc.</th>
-					<th class="text-right">Precio</th>
-					<th style="width: 36px;"></th>
-				</tr>
-									<tr>
-						<td>123</td>
-						<td>
-							<p>Producto de prueba</p>													
-						</td>
-						
-						<td style="min-width:100px">
-							<div class="pull-right">
-								<input type="text" class="form-control form-control-sm " style="text-align:right" id="cantidad_1" value="1">
-							</div>
-						</td>
-						<td style="min-width:100px">
-							<div class="pull-right">
-								<input type="text" class="form-control form-control-sm" style="text-align:right" id="descuento_1" placeholder="%" maxlength="2">
-							</div>
-						</td>
-						<td style="min-width:130px">
-						
-						<div class="input-group input-group-sm mb-3 ">
-						  <div class="input-group-prepend">
-							<span class="input-group-text">$</span>
-							
-						  </div>
-						  <input type="text" class="form-control form-control-sm" style="text-align:right" id="precio_venta_1" value="99.00">
-						</div>
-
-
-
-						
-						</td>
-						<td><span class="pull-right"><a href="#" onclick="agregar('1')"><i class="fa fa-shopping-cart " style="font-size:24px;color: #5CB85C;"></i></a></span></td>
-					</tr>
-										<tr>
-						<td>1590</td>
-						<td>
-							Prueba del priducto<span>
-					</span>							<br>Marca: stih						
-						</td>
-						
-						<td style="min-width:100px">
-							<div class="pull-right">
-								<input type="text" class="form-control form-control-sm " style="text-align:right" id="cantidad_2" value="1">
-							</div>
-						</td>
-						<td style="min-width:100px">
-							<div class="pull-right">
-								<input type="text" class="form-control form-control-sm" style="text-align:right" id="descuento_2" placeholder="%" maxlength="2">
-							</div>
-						</td>
-						<td style="min-width:130px">
-						
-						<div class="input-group input-group-sm mb-3 ">
-						  <div class="input-group-prepend">
-							<span class="input-group-text">$</span>
-							
-						  </div>
-						  <input type="text" class="form-control form-control-sm" style="text-align:right" id="precio_venta_2" value="3000.00">
-						</div>
-
-
-
-						
-						</td>
-						<td><span class="pull-right"><a href="#" onclick="agregar('2')"><i class="fa fa-shopping-cart " style="font-size:24px;color: #5CB85C;"></i></a></span></td>
-					</tr>
-										<tr>
-						<td>MF0293</td>
-						<td>
-							CEPILLO DE CITO-LOGIA PARA VÍA BILIAR DE DOS CANALES.													
-						</td>
-						
-						<td style="min-width:100px">
-							<div class="pull-right">
-								<input type="text" class="form-control form-control-sm " style="text-align:right" id="cantidad_3" value="1">
-							</div>
-						</td>
-						<td style="min-width:100px">
-							<div class="pull-right">
-								<input type="text" class="form-control form-control-sm" style="text-align:right" id="descuento_3" placeholder="%" maxlength="2">
-							</div>
-						</td>
-						<td style="min-width:130px">
-						
-						<div class="input-group input-group-sm mb-3 ">
-						  <div class="input-group-prepend">
-							<span class="input-group-text">$</span>
-							
-						  </div>
-						  <input type="text" class="form-control form-control-sm" style="text-align:right" id="precio_venta_3" value="1700.00">
-						</div>
-
-
-
-						
-						</td>
-						<td><span class="pull-right"><a href="#" onclick="agregar('3')"><i class="fa fa-shopping-cart " style="font-size:24px;color: #5CB85C;"></i></a></span></td>
-					</tr>
-										<tr>
-						<td>12312</td>
-						<td>
-							<p>adas&nbsp;&nbsp;&nbsp;&nbsp;</p>							<br>Marca: stih						
-						</td>
-						
-						<td style="min-width:100px">
-							<div class="pull-right">
-								<input type="text" class="form-control form-control-sm " style="text-align:right" id="cantidad_4" value="1">
-							</div>
-						</td>
-						<td style="min-width:100px">
-							<div class="pull-right">
-								<input type="text" class="form-control form-control-sm" style="text-align:right" id="descuento_4" placeholder="%" maxlength="2">
-							</div>
-						</td>
-						<td style="min-width:130px">
-						
-						<div class="input-group input-group-sm mb-3 ">
-						  <div class="input-group-prepend">
-							<span class="input-group-text">$</span>
-							
-						  </div>
-						  <input type="text" class="form-control form-control-sm" style="text-align:right" id="precio_venta_4" value="1200.00">
-						</div>
-
-
-
-						
-						</td>
-						<td><span class="pull-right"><a href="#" onclick="agregar('4')"><i class="fa fa-shopping-cart " style="font-size:24px;color: #5CB85C;"></i></a></span></td>
-					</tr>
-										<tr>
-						<td>0025</td>
-						<td>
-							<p>Prueba de ingreso de productos</p>							<br>Marca: stih						
-						</td>
-						
-						<td style="min-width:100px">
-							<div class="pull-right">
-								<input type="text" class="form-control form-control-sm " style="text-align:right" id="cantidad_5" value="1">
-							</div>
-						</td>
-						<td style="min-width:100px">
-							<div class="pull-right">
-								<input type="text" class="form-control form-control-sm" style="text-align:right" id="descuento_5" placeholder="%" maxlength="2">
-							</div>
-						</td>
-						<td style="min-width:130px">
-						
-						<div class="input-group input-group-sm mb-3 ">
-						  <div class="input-group-prepend">
-							<span class="input-group-text">$</span>
-							
-						  </div>
-						  <input type="text" class="form-control form-control-sm" style="text-align:right" id="precio_venta_5" value="100.00">
-						</div>
-
-
-
-						
-						</td>
-						<td><span class="pull-right"><a href="#" onclick="agregar('5')"><i class="fa fa-shopping-cart " style="font-size:24px;color: #5CB85C;"></i></a></span></td>
-					</tr>
-									<tr>
-					<td colspan="7"><span class="float-right"><nav aria-label="Page navigation example"> <ul class="pagination"><li class="disabled page-item"><span><a class="page-link">‹ Siguiente</a></span></li><li class="page-item active"><a class="page-link">1</a></li><li class="page-item"><a class="page-link" href="javascript:void(0);" onclick="load(2)">2</a></li><li class="page-item"><a class="page-link" href="javascript:void(0);" onclick="load(3)">3</a></li><li class="page-item"><a class="page-link" href="javascript:void(0);" onclick="load(4)">4</a></li><li class="page-item"><a class="page-link" href="javascript:void(0);" onclick="load(5)">5</a></li><li class="page-item"><a class="page-link">...</a></li><li class="page-item"><a class="page-link" href="javascript:void(0);" onclick="load(11)">11</a></li><li class="page-item"><span><a class="page-link" href="javascript:void(0);" onclick="load(2)">Anterior ›</a></span></li></ul></nav></span>
-					</td>
-				</tr>
-			  </tbody></table>
-			</div>
-			</div><!-- Datos ajax Final -->
+          <div id="loader" style="position: absolute; text-align: center; top: 55px; width: 100%;"></div><!-- Carga gif animado -->
+            <div class="outer_div">			
+            </div><!-- Datos ajax Final -->
 				  </div>
 				  <div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-					
 				  </div>
 				</div>
 			  </div>
@@ -1620,12 +1444,6 @@ body.swal2-no-backdrop .swal2-shown {
 					<input type="text" class="form-control" id="precio" name="precio" placeholder="" required="" pattern="^[0-9]{1,11}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="13">
 				</div>
 			</div>			
-			 
-			  
-			 
-			 
-			 
-			 
 			
 		  </form></div>
 		  <div class="modal-footer">
@@ -1694,13 +1512,6 @@ body.swal2-no-backdrop .swal2-shown {
 				
 			</div>
 			  
-			  
-			  
-			
-			
-			  
-			 
-			 
 			
 		  </form></div>
 		  <div class="modal-footer">
@@ -1717,7 +1528,18 @@ body.swal2-no-backdrop .swal2-shown {
                             <h3>COTIZACIÓN
                               <b>
                               <?php
-                                        $sql="SELECT max(id_cotizacion) as cont FROM  cotizaciones_demo ";
+                              $result = $con->query("SET NAMES 'utf8'");
+                              $sql="SELECT max(id_cotizacion) as cont FROM cotizaciones_demo ";
+                              if ($result = $con->query($sql)) {
+                                  while ($row = $result->fetch_row()) {
+                                    $contador=$row[0];
+                                  }
+                                  /* cerramos la conexion */
+                                  $result->close();
+                                  echo $contador++;
+                              }
+/*
+                                        $sql="SELECT max(id_cotizacion) as cont FROM cotizaciones_demo ";
                                         $query = mysqli_query($con, $sql);
                                         while ($row=mysqli_fetch_array($query)){
                                             $contador=$row['cont'];                                            
@@ -1725,6 +1547,8 @@ body.swal2-no-backdrop .swal2-shown {
                                             #<? echo $contador++; ?>
                                             <?php
                                             }
+                                            ?>
+                                            */
                                             ?>
                               </b>
                             </h3>
@@ -1734,7 +1558,9 @@ body.swal2-no-backdrop .swal2-shown {
 							
 							<div class="row">
 								<div class="col-md-3">
-									<label>Cliente</label>	
+
+                <input type="checkbox" checked data-toggle="toggle" data-on="Clientes" data-off="Prospectos" data-onstyle="outline-info" data-offstyle="outline-dark" checked>
+                  
 								  <!-- <input type="text" class="form-control ui-autocomplete-input" id="nombre_cliente" placeholder="Selecciona al cliente" required="" autocomplete="off"> -->
                   <!-- <input id="id_cliente" name="id_cliente" type="hidden" value=""> -->
                   <select name="combo_clientes" id="combo_clientes" class='form-control'>
@@ -1829,10 +1655,10 @@ body.swal2-no-backdrop .swal2-shown {
 								  <button type="button" class="btn btn-light" data-toggle="modal" data-target="#addModalProduct">
 										 <span class="fa fa-plus"></span> Nuevo producto
                     </button>
-                    -->
+                    
 								  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
 										 <span class="fa fa-search"></span> Buscar productos
-										</button> 
+										</button>--> 
 																				
 								</div>
 
@@ -1859,33 +1685,34 @@ body.swal2-no-backdrop .swal2-shown {
                   <h3>Tokyo</h3>
                   <p>Tokyo is the capital of Japan.</p>
                 </div> -->
-                <div id="example-tabs" style='height:400px'>
+                <div id="example-tabs" style="height:350px;border: khaki;border: 3px solid khaki;">
                   <h3><i class="fa fa-archive" aria-hidden="true"></i> Componentes</h3>
                   <section>
                     
                     <div class="col-md-2">
                       <div class="form-group">
-                        <label for="exampleSelectMultiple">Componente</label>
+                        <label for="exampleSelectMultiple">Componente 
+										 <span style='cursor:pointer' class="fa fa-search" data-toggle="modal" data-target="#caracteristicasModal"></span></label>
                         <select class="form-control" id="combo_componentes">
-                          <option>Selecciona...</option>
-                          <option>Caja</option>
-                          <option>Separador</option>
-                          <option>Rejilla</option>
-                          <option>Tapa</option>
-                          <option>Banda</option>
-                          <option>Inserto</option>
-                          <option>Mampara</option>
+                          <option value='vacio'>Selecciona...</option>
+                          <option value='caja'>Caja</option>
+                          <option value='separador'>Separador</option>
+                          <option value='rejilla'>Rejilla</option>
+                          <option value='tapa'>Tapa</option>
+                          <option value='banda'>Banda</option>
+                          <option value='inserto'>Inserto</option>
+                          <option value='mampara'>Mampara</option>
                         </select>
                         <small id="help_caracteristicas" class="form-text text-muted">Caracteristicas</small>
                       </div>
                       <div class="form-group">
                           <label for="exampleSelectMultiple">Tipo de flauta</label>
                           <select class="form-control" id="exampleSelectMultiple">
-                          <option>Selecciona...</option>
-                            <option>Tipo B</option>
-                            <option>Tipo C</option>
-                            <option>Tipo E</option>
-                            <option>Tipo BC</option>
+                          <option value='vacio'>Selecciona...</option>
+                            <option value='Tipo_B'>Tipo B</option>
+                            <option value='Tipo_C'>Tipo C</option>
+                            <option value='Tipo_E'>Tipo E</option>
+                            <option value='Tipo_BC'>Tipo BC</option>
                           </select>
                           <small id="help_caracteristicas" class="form-text text-muted"></small>
                         </div>
@@ -1893,79 +1720,155 @@ body.swal2-no-backdrop .swal2-shown {
                     <div class="col-md-2">
                       <div class="form-group">
                         <label for="exampleSelectMultiple">Matierial Primario</label>
-                        <select class="form-control" id="exampleSelectMultiple">
-                        <option>Selecciona...</option>
-                          <option>Carton</option>
-                          <option>Fibra sólida</option>
-                          <option>Honey Comb</option>
-                          <option>Polietileno</option>
-                          <option>Coroplast</option>
-                          <option>MDF</option>
-                          <option>Acrilico</option>
+                        <select class="form-control" id="combo_material_primario">
+                          <option value='vacio'>Selecciona...</option>
+                          <option value='carton'>Carton</option>
+                          <option value='fibra_solida'>Fibra sólida</option>
+                          <option value='hoeny_comb'>Honey Comb</option>
+                          <option value='polietileno'>Polietileno</option>
+                          <option value='coroplast'>Coroplast</option>
+                          <option value='mdf'>MDF</option>
+                          <option value='acrilico'>Acrilico</option>
                         </select>
                       </div>
-                      <div class="form-group">
-                        <label for="exampleSelectMultiple">Consumo mensual</label>
+                      <div class="form-group"><br>
+                        <label for="exampleSelectMultiple">Consumo mensual (piezas)</label>
                         <input type="number" class='form-control' min='1' name="" id="" step="1" value="1" >
                       </div>
                     </div>
                     <div class="col-md-2">                  
                       <div class="form-group">
                         <label for="exampleSelectMultiple">Matierial específico</label>
-                        <select class="form-control" id="exampleSelectMultiple">
-                        <option>Selecciona...</option>
-                          <option>Sencillo</option>
-                          <option>Doble</option>
-                          <option>Triple</option>
+                        <select class="form-control" id="combo_material_especifico">
+                          <option value='vacio'>Selecciona...</option>
+                          <option value='sencillo'>Sencillo</option>
+                          <option value='doble'>Doble</option>
+                          <option value='triple'>Triple</option>
                         </select>
-                        <small id="help_caracteristicas" class="form-text text-muted"></small>
+                        <div class="form-group"><br><br>
+                          <label for="exampleSelectMultiple">Largo Total (mm)</label>
+                          <input type="text" class='form-control' >
+                        </div>
                       </div>
                     </div>
                     <div class="col-md-2">                  
                       <div class="form-group">
                         <label for="exampleSelectMultiple">Color</label>
                         <input type="text" class='form-control'> 
+                        <div class="form-group"><br><br>
+                          <label for="exampleSelectMultiple">Ancho Total (mm)</label>
+                          <input type="text" class='form-control' >
+                        </div>
                       </div>
                     </div>
                     <div class="col-md-2">                  
                       <div class="form-group">
                         <label for="exampleSelectMultiple">Resistencia/Grosor</label>
                         <input type="text" class='form-control'> 
+                        <div class="form-group"><br><br>
+                          <label for="exampleSelectMultiple">M<sup>2</sup> x pieza</label>
+                          <input type="text" class='form-control' disabled="disabled" class='disabled' >
+                          <small id="help_caracteristicas" class="form-text text-muted">Costo proveedor x m2: $0.00</small>
+                        </div>
                       </div>
                     </div>
                     <div class="col-md-2">                  
                       <div class="form-group">
                         <label for="exampleSelectMultiple">Tipo de contenedor</label>
-                        <select class="form-control" id="exampleSelectMultiple">
-                          <option>Selecciona...</option>
-                          <option>Regular ranurada</option>
-                          <option>Suajada</option>
-                          <option>Autoarmable</option>
-                          <option>Autoarmable suajada</option>
-                          <option>bin</option>
-                          <option>Especial</option>
+                        <select class="form-control" id="combo_tipo_contenedor">
+                          <option value='vacio'>Selecciona...</option>
+                          <option value='regular_ranurada'>Regular ranurada</option>
+                          <option value='suajada'>Suajada</option>
+                          <option value='autoarmable'>Autoarmable</option>
+                          <option value='autoarmable_suajada'>Autoarmable suajada</option>
+                          <option value='bin'>Bin</option>
+                          <option value='especial'>Especial</option>
                         </select>
+                        <div class="form-group"><br><br>
+                          <label for="exampleSelectMultiple">Consumo de material (M<sup>2</sup>)</label>
+                          <input type="text" class='form-control' disabled="disabled" class='disabled' >
+                        </div>
                       </div>
+                    </div>
                                          
                     </section>
-                    <h3><i class="fa fa-cogs" aria-hidden="true"></i> Tipo de material</h3>
+                    <h3><i class="fa fa-cubes" aria-hidden="true"></i> Material complementario</h3>
                     <section>
-                        <p>Scroll down or up to see the other demos.</p>
-                    </section>
-                    <h3><i class="fa fa-object-group" aria-hidden="true"></i> Material complementario</h3>
-                    <section>
-                        <p>For more information <a href="https://github.com/rstaib/jquery-steps/wiki">check out the documentation</a>!</p>
+                      <div class="col-md-2">                  
+                        <div class="form-group">
+                          <label for="exampleSelectMultiple">Tipo de material</label>
+                          <select class="form-control" id="exampleSelectMultiple">
+                            <option value='vacio'>Selecciona...</option>
+                            <option value='silicon'>Silicon</option>
+                            <option value='blanco'>Blanco</option>
+                            <option value='velcro'>Velcro</option>
+                            <option value='lapiz'>Lapiz</option>
+                            <option value='cianocrilato'>Cianocrilato</option>
+                            <option value='acrilico'>Acrilico</option>
+                          </select>
+                        </div>
+                        <div class="form-group"><br><br>
+                          <label for="exampleSelectMultiple">Consumo de material (m2)</label>
+                          <input type="text" class='form-control' disabled="disabled" class='disabled' >
+                        </div>
+                      </div>
+                      <div class="col-md-2"> 
+                        <div class="form-group">
+                          <label for="exampleSelectMultiple">Tintas</label>
+                          <select class="form-control" id="exampleSelectMultiple">
+                            <option>Selecciona...</option>
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3 o más</option>
+                            <option>Ofset</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-2"> 
+                        <div class="form-group">
+                          <label for="exampleSelectMultiple">Amarre</label>
+                          <select class="form-control" id="exampleSelectMultiple">
+                            <option>Selecciona...</option>
+                            <option>Fleje</option>
+                            <option>Lazo</option>
+                            <option>Emplaye</option>
+                            <option>cinta</option>
+                          </select>
+                        </div>
+                      </div>
                     </section>
                     <h3><i class="fa fa-truck" aria-hidden="true"></i> Flete</h3>
                     <section>
-                        <p>See on getting started!</p>
+                      <div class="col-md-2">                  
+                        <div class="form-group">
+                          <label for="exampleSelectMultiple">Volumen</label>
+                          <input type="text" class='form-control'> 
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleSelectMultiple">Distancia Km</label>
+                          <input type="text" class='form-control'> 
+                        </div>
+                      </div>
+                      <div class="col-md-2">                  
+                        <div class="form-group">
+                          <label for="exampleSelectMultiple">Proveedor</label>
+                          <select class="form-control" id="exampleSelectMultiple">
+                            <option>Selecciona...</option>
+                            <option>Cliente</option>
+                            <option>Propio</option>
+                            <option>Prov 1</option>
+                            <option>Prov 2 suajada</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleSelectMultiple">Costo x Km</label>
+                          <input type="text" class='form-control disabled' disabled="disabled"> 
+                          <small id="help_caracteristicas" class="form-text text-muted">Rango: 0km- 300km</small>
+                        </div>
+                      </div>
                     </section>
-                </div>
-                <section id='resumen'>
-                  <h4>Resumen</h4>
-                </section>
-                <button type="button" class="float-right btn btn-primary">
-										 <span class="fa fa-plus"></span> Agregar</button>
+                </div>                
               </div>
 							
 							<div class="row">
@@ -1973,51 +1876,49 @@ body.swal2-no-backdrop .swal2-shown {
 								<div id="resultados" class="col-md-12" style="margin-top:10px"><div class="table-responsive">
 <table class="table">
 <tbody><tr>
-	<th>CODIGO</th>
-	<th class="text-center">CANT.</th>
-	<th>DESCRIPCION</th>
-	<th class="text-right">PRECIO UNIT.</th>
-	<th class="text-right">DESC.</th>
-	<th class="text-right">PRECIO TOTAL</th>
-	<th></th>
+<th>#</th>
+  <th>COMPONENTE</th>
+  <th>METERIAL COMPLEMENTARIO</th>
+	<th class="text-center">CANTIDAD MENSUAL</th>
+	<th class="text-right">COSTO UNIT.</th>
+  <th class="text-right">COSTO TOTAL.</th>	
+  <th>Acciones</th>
 </tr>
 		<tr class="">
-			<td>123</td>
-			<td class="text-center">1</td>
-			<td><p>Producto de prueba</p></td>
-			<td class="text-right">99,00</td>
-			<td class="text-right">0,00</td>
-			<td class="text-right">99,00</td>
-			<td class="text-right">
-				<a href="#editModalItem" data-toggle="modal" data-codigo="123" data-cantidad="1" data-descripcion="Producto de prueba" data-descuento="0.00" data-precio="99.00" data-id="1232"><i class="fa fa-edit"></i></a> 
-				<a href="#" onclick="eliminar('1232')"><i class="fa fa-trash"></i></a>
-			</td>
+    <td>1</td>
+		<td><span style='cursor: pointer;padding: 10px;font-size: 1em;color:#fff' class="pop label label-info" style='opacity:1 !important;' title="!">Caja</span></td>
+    <!-- <span data-tootik="Dimensiones: 123mm x 123mm x 123m. Material primario:Carton ." data-tootik-conf="warning multiline" style='cursor:pointer'>Caja</span> -->
+      <td><span style='cursor: pointer;padding: 10px;font-size: 1em;color:#fff' class="pop label label-info" style='opacity:1 !important;' title="!">Silicon</span></td>
+			<td class="text-center">1,000</td>
+			<td class="text-right">$ 2.45</td>
+      <td class="text-right">$ 2,450.00</td>
+      <td><a href="#editModalItem" class='btn btn-info' data-toggle="modal" data-codigo="123" data-cantidad="1" data-descripcion="Producto de prueba" data-descuento="0.00" data-precio="99.00" data-id="1232"><i class="fa fa-edit"></i></a> 
+				<a href="#" onclick="eliminar('0')" class='btn btn-danger'><i class="fa fa-trash"></i></a></td>
 		</tr>		
 		<tr>
-	<td colspan="5" class="text-right">PARCIAL $</td>
-	<td class="text-right">99,00</td>
-	<td></td>
+	<td colspan="5" class="text-right">SUBTOTAL:</td>
+	<td class="text-right">$ 2,450.00 </td>
 </tr>
 <tr>
-	<td colspan="5" class="text-right">DESCUENTO $</td>
-	<td class="text-right">0,00</td>
-	<td></td>
+	<td colspan="5" class="text-right"><select class='form-control' style='width:5%'><option>20%</option></select> UTILIDAD:</td>
+	<td class="text-right">$ 490.00</td>
 </tr>
 <tr>
-	<td colspan="5" class="text-right">NETO $</td>
-	<td class="text-right">99,00</td>
-	<td></td>
+	<td colspan="5" class="text-right">FLETE:</td>
+	<td class="text-right">$ 5,990.00</td>
+</tr>
+<tr>
+	<td colspan="5" class="text-right">TOTAL:</td>
+	<td class="text-right">$ 7,940.00</td>
 </tr>
 <tr>
 	<td colspan="5" class="text-right">
-		IVA $	</td>
-	<td class="text-right">0,00</td>
-	<td></td>
+		IVA:	</td>
+	<td class="text-right">$ 470.40</td>
 </tr>
 <tr>
 	<td colspan="5" class="text-right">TOTAL $</td>
-	<td class="text-right">99,00</td>
-	<td></td>
+	<td class="text-right">$ 3,410.40</td>
 </tr>
 </tbody></table>
 <div class="float-right">
@@ -2066,12 +1967,13 @@ body.swal2-no-backdrop .swal2-shown {
     <!-- All Jquery -->
     <!-- ============================================================== -->
 	
-    <script src="assets/plugins/jquery/jquery.min.js"></script>
+    <!--<script src="assets/plugins/jquery/jquery.min.js"></script>-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
     
   <script src="assets/js/modernizr-2.6.2.min.js"></script>
-  <script src="assets/js/jquery-1.9.1.min.js"></script>
-  <script src="assets/js/jquery.cookie-1.3.1.js"></script>
-  <script src="assets/js/jquery.steps.js"></script>
+  <!--<script src="assets/js/jquery-1.9.1.min.js"></script>-->
+  <!--<script src="assets/js/jquery.cookie-1.3.1.js"></script>-->
+  
     <!-- Bootstrap tether Core JavaScript -->
     <script src="assets/plugins/bootstrap/js/popper.min.js"></script>
     <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -2083,18 +1985,22 @@ body.swal2-no-backdrop .swal2-shown {
     <script src="assets/js/sidebarmenu.js"></script>
     <!--stickey kit -->
     <script src="assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+   
     <!--Custom JavaScript -->
     <script src="assets/js/custom.min.js"></script>
 	<!--Sweetalert plugin -->
-	<script src="assets/plugins/sweetalert/sweetalert.min.js"></script>	
+	  <script src="assets/plugins/sweetalert/sweetalert.min.js"></script>	
     <script type="text/javascript" src="assets/js/VentanaCentrada.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 	
-	<script type="text/javascript" src="assets/js/nueva_cotizacion.js"></script>
 	
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="assets/plugins/summernote/dist/summernote-bs4.min.js"></script>
-	
- 
+  <script src="assets/js/jquery.steps.js"></script>
+  
+    <script src="assets/tooltipster/dist/js/tooltipster.bundle.js"></script>
+    <script type="text/javascript" src="assets/js/nueva_cotizacion.js"></script>
+  
 
 <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul><div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

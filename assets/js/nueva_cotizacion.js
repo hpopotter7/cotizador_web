@@ -1,13 +1,24 @@
 
 		$(document).ready(function(){
 			load(1);
+							
+			
 			//load_data();
 			
 			// Example starter JavaScript for disabling form submissions if there are invalid fields
-    
+			$('.pop').tooltipster({
+				content: $('<div id="mikrah">Dimensiones: 123mm x 124mm x 125mm<br>Material: Carton</div><div id="mikrash">Color: N/A</div>'),
+				animation: 'fade',
+				delay: 200,
+				theme: 'tooltipster-borderless',
+				trigger: 'hover',
+				contentAsHTML: true
+			 });
 	
 		});
+
 		
+
 		$("#datos_cotizacion").submit(function(){
 		  var id_cliente = $("#id_cliente").val();
 		  var id_contacto = $("#atencion").val();
@@ -47,6 +58,7 @@
 	 	});
 
 		function load(page){
+			$(".outer_div").html("");
 			var q= $("#q").val();
 			$("#loader").fadeIn('slow');
 			$.ajax({
@@ -57,9 +69,17 @@
 				success:function(data){
 					$(".outer_div").html(data).fadeIn('slow');
 					$('#loader').html('');
-					
 				}
 			})
+		}
+
+		function añadir(datos){
+			$("#combo_componentes").val(datos[0]);			
+			$("#combo_material_primario").val(datos[1]);
+			$("#combo_material_especifico").val(datos[2]);
+			$("#combo_tipo_contenedor").val(datos[3]);
+			
+			//$("#help_caracteristicas").html("Al: "+$("#alto").val()+"mm x An: "+$("#ancho").val()+"mm x La: "+$("#largo").val()+"mm");
 		}
 
 	function agregar (id)
@@ -338,5 +358,49 @@
 			onStepChanged: function(event, currentIndex) {
 				//alert("ads");
 			  }
+		});
+
+		$("#combo_componentes").change(function (){
+			var valor=$(this).val();
+			if(valor==="caja"){
+				Swal.mixin({
+					input: 'text',
+					confirmButtonText: 'Next &rarr;',
+					showCancelButton: false,
+					allowOutsideClick: false,
+					progressSteps: ['1', '2', '3'],
+					inputValidator: (value) => {
+						if (!value) {
+						  return 'Debes ingresar un valor válido!'
+						}
+					  }
+				  }).queue([
+					{
+					  title: 'Medidas internas',
+					  text: 'Alto (mm)'
+					},
+					{
+						title: 'Medidas internas',
+						text: 'Ancho (mm)'
+					},
+					{
+						title: 'Medidas internas',
+						text: 'Largo (mm)'
+					},
+				  ]).then((result) => {
+					if (result.value) {
+					  //const answers = JSON.stringify(result.value)
+					  if(result.value[0]=="" || result.value[1]=="" || result.value[2]==""){
+						Swal.fire({
+							title: 'Advertencia',
+							text: 'Debe ingresar los 3 valores solicitados',
+							confirmButtonText: 'Aceptar'
+						  });
+						  $("#combo_componentes").val("vacio");
+					  }
+					  $('#help_caracteristicas').html("Al: "+result.value[0]+"mm x An: "+result.value[1]+"mm x La: "+result.value[2]+"mm");
+					}
+				  })
+			}
 		});
 

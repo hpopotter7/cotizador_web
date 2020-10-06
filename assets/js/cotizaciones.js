@@ -14,10 +14,10 @@
 	
 		);
 	
-	$('#daterange').on('apply.daterangepicker', function(ev, picker) {
-	  //do something, enviar los datos via ajax con la funcion load()
-	  load(1);
-	});
+			$('#daterange').on('apply.daterangepicker', function(ev, picker) {
+			//do something, enviar los datos via ajax con la funcion load()
+			load(1);
+			});
 	
 			
 			

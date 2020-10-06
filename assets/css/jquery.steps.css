@@ -291,6 +291,7 @@
     position: relative;
     display: block;
     width: 100%;
+    background-color: khaki;
 }
 
 .tabcontrol > .steps > ul
