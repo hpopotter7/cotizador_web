@@ -24,6 +24,8 @@ function inicio(){
 		
 
 		$("#datos_cotizacion").submit(function(){
+			VentanaCentrada('./assets/html2pdf/pdf/pdf2.php','Cotizacion','','1024','768','true');
+			/*
 		  var id_cliente = $("#id_cliente").val();
 		  var id_contacto = $("#atencion").val();
 		  var condiciones = $("#condiciones").val();
@@ -37,10 +39,11 @@ function inicio(){
 			return false;
 		  }
 		
-			/*VentanaCentrada('./pdf/documentos/cotizacion_pdf.php?id_cliente='+id_cliente+'&id_contacto='+id_contacto+'&condiciones='+condiciones+'&validez='+validez+'&entrega='+entrega+'&notas='+notas+'&moneda='+moneda,'Cotizacion','','1024','768','true');*/
+			VentanaCentrada('./pdf/documentos/cotizacion_pdf.php?id_cliente='+id_cliente+'&id_contacto='+id_contacto+'&condiciones='+condiciones+'&validez='+validez+'&entrega='+entrega+'&notas='+notas+'&moneda='+moneda,'Cotizacion','','1024','768','true');*/
 		 
 			//var parametros = {'id_cliente':id_cliente,'id_contacto':id_contacto,'condiciones':condiciones,'validez':validez,'entrega':entrega,'notas':notas,'moneda':moneda};
 			
+			/*
 			var parametros = $(this).serialize();
 			
 			$.ajax({
@@ -53,7 +56,8 @@ function inicio(){
 					success: function(datos){
 					$("#resultados").html(datos);
 				  }
-			});			
+			});	
+			*/		
 	 	});
 
 		function load(page){
@@ -343,11 +347,14 @@ function inicio(){
 			headerTag: "h3",
 			bodyTag: "section",
 			transitionEffect: "slideLeft",
-			enableFinishButton: false,
-			enablePagination: false,
+			showFinishButtonAlways: true,
+			enableFinishButton: true,
+			enablePagination: true,
 			enableAllSteps: true,
+			enableKeyNavigation: true,
 			titleTemplate: "#title#",
 			cssClass: "tabcontrol",
+			
 			onStepChanged: function(event, currentIndex) {
 				//alert("ads");
 			  }

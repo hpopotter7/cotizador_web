@@ -1636,11 +1636,11 @@ body.swal2-no-backdrop .swal2-shown {
                   </div>
                   <div class="col-md-2">
                     <label>Validéz de la cotización</label>
-                    <input type="text" class="form-control" id="validez" name="validez" placeholder="Validéz de la cotización" value="" required="">
+                    <input type="text" class="form-control" id="validez" name="validez" placeholder="Validéz de la cotización" value="">
                   </div>
                   <div class="col-md-2">
                     <label>Tiempo de entrega</label>
-                    <input type="text" class="form-control" id="entrega" name="entrega" placeholder="Tiempo de entrega" value="" required="">
+                    <input type="text" class="form-control" id="entrega" name="entrega" placeholder="Tiempo de entrega" value="">
                   </div>
                   <div class="col-md-2">
                     <label>Ubicación</label>
