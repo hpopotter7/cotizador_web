@@ -1285,8 +1285,8 @@ body.swal2-no-backdrop .swal2-shown {
                         <h3 class="text-themecolor mb-0 mt-0">Cotizaciones</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
-							<li class="breadcrumb-item ">Cotizaciones</li>
-							<li class="breadcrumb-item active">Nueva</li>
+                            <li class="breadcrumb-item ">Cotizaciones</li>
+                            <li class="breadcrumb-item active">Nueva</li>
                         </ol>
                     </div>
 					
@@ -1302,7 +1302,10 @@ body.swal2-no-backdrop .swal2-shown {
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-							<!-- Modal -->
+              <!-- Modal -->
+              <?php
+                include("modales.html");
+              ?>
 			<div class="modal fade bs-example-modal-lg" id="caracteristicasModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			  <div class="modal-dialog modal-lg" role="document" style=" max-width: 80% !important;">
 				<div class="modal-content">
@@ -1333,7 +1336,9 @@ body.swal2-no-backdrop .swal2-shown {
 				  </div>
 				</div>
 			  </div>
-			</div><form class="form-horizontal" method="post" id="editar_item" name="editar_item">
+      </div>
+
+      <form class="form-horizontal" method="post" id="editar_item" name="editar_item">
 	<!-- Modal -->
 	<div class="modal fade " id="editModalItem" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	  <div class="modal-dialog" role="document">
@@ -1863,24 +1868,43 @@ body.swal2-no-backdrop .swal2-shown {
                       </div>
                       <div class="col-md-2"> 
                         <div class="form-group">
-                          <label for="exampleSelectMultiple">Tintas</label>
+                          <label for="exampleSelectMultiple" id="label_tintas">Tintas</label>
                           <select class="form-control" id="combo_tintas">
                             <option value='vacio'>Selecciona...</option>
-                            <option value='0'>0</option>
-                            <option value='1'>1</option>
-                            <option value='2'>2</option>
-                            <option value=''>3 o más</option>
-                            <option value='ofset'>Ofset</option>
+                            <option value='si'>Si</option>
+                            <option value='no'>No</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-md-2"> 
                         <div class="form-group">
-                          <label for="exampleSelectMultiple">Tipo de tinta</label>
-                          <select class="form-control" id="combo_tintas" class='disabled' disabled='disabled'>
+                          <label for="exampleSelectMultiple">Amarre</label>
+                          <select class="form-control" id="combo_amarre">
                             <option value='vacio'>Selecciona...</option>
-                            <option value='pantone'>Pantone</option>
-                            <option value='rgb'>RGB</option>
+                            <option value='fleje'>Fleje</option>
+                            <option value='lazo'>Lazo</option>
+                            <option value='emplaye'>Emplaye</option>
+                            <option value='cinta'>Cinta</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-2"> 
+                        <div class="form-group">
+                          <label for="exampleSelectMultiple" id="label_grapas">Grapas</label>
+                          <select class="form-control" id="combo_grapas">
+                            <option value='vacio'>Selecciona...</option>
+                            <option value='si'>Si</option>
+                            <option value='no'>No</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-2"> 
+                        <div class="form-group">
+                          <label for="exampleSelectMultiple" id="label_tarimas">Tarimas</label>
+                          <select class="form-control" id="combo_tarimas">
+                            <option value='vacio'>Selecciona...</option>
+                            <option value='si'>Si</option>
+                            <option value='no'>No</option>
                           </select>
                         </div>
                       </div>
@@ -2049,6 +2073,9 @@ body.swal2-no-backdrop .swal2-shown {
   
     <script src="assets/tooltipster/dist/js/tooltipster.bundle.js"></script>
     <script type="text/javascript" src="assets/js/nueva_cotizacion.js"></script>
+    <script>
+     $(document).on("ready",inicio);
+    </script>
   
 
 <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul><div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

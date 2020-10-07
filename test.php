@@ -6,6 +6,9 @@
 show_source($filename);
 */
 
-include("http://localhost/ubergallery/multiple_image_upload/upload.php"); 
+
+    $página_inicio = file_get_contents('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
+    echo $página_inicio;
+
   
   ?>

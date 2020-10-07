@@ -1,21 +1,25 @@
-
-		$(document).ready(function(){
-			load(1);
-							
-			
-			//load_data();
-			
-			// Example starter JavaScript for disabling form submissions if there are invalid fields
-			$('.pop').tooltipster({
-				content: $('<div id="mikrah">Dimensiones: 123mm x 124mm x 125mm<br>Material: Carton</div><div id="mikrash">Color: N/A</div>'),
-				animation: 'fade',
-				delay: 200,
-				theme: 'tooltipster-borderless',
-				trigger: 'hover',
-				contentAsHTML: true
-			 });
+function inicio(){
+	load(1);
+	var contador_tintas=0;
+	var arreglo_tipo=new Array();
+	var arreglo_color=new Array();
+	var arreglo_cantidad=new Array();	
+	var grapas_tamaño=new Array();	
+	var grapas_cantidad=new Array();			
 	
+	//load_data();
+	
+	// Example starter JavaScript for disabling form submissions if there are invalid fields
+	$('.pop').tooltipster({
+		content: $('<div id="mikrah">Dimensiones: 123mm x 124mm x 125mm<br>Material: Carton</div><div id="mikrash">Color: N/A</div>'),
+		animation: 'fade',
+		delay: 200,
+		theme: 'tooltipster-borderless',
+		trigger: 'hover',
+		contentAsHTML: true
 		});
+
+		
 
 		
 
@@ -349,15 +353,258 @@
 			  }
 		});
 
+		$('#btn_ok_tintas').on('click',function(){
+			if(arreglo_cantidad.length==0){
+				Swal.fire({
+					title: '¿Desea cancelar las tintas?',
+					text: "No se ha agregado ninguna tinta",
+					type: 'warning',
+					showCancelButton: true,
+					confirmButtonColor: '#3085d6',
+					cancelButtonColor: '#d33',
+					confirmButtonText: 'Si, cancelar',
+					cancelButtonText: 'NO'
+				  }).then((result) => {
+					console.log(result);
+					if (result.value) {
+						$("#label_tintas").html("Tintas");
+						arreglo_tipo = [];
+						arreglo_color = [];
+						arreglo_cantidad= [];
+						$("#cuerpo_tintas").html("");
+						$("#combo_tintas").val("no");
+						$("#close_demo").click();
+					}
+				  })
+			}
+			else{
+				$("#label_tintas").html("Tintas <h6 style='display: inline; font-size:1.2em !important;color:black'><span class='badge badge-warning' style='color:black !important;'>"+arreglo_cantidad.length+"</span></h6> <i style='cursor:pointer;color:blue;' data-toggle='modal' data-target='#Modal_demo' class='fa fa-edit'></i>");
+				$("#close_demo").click();
+			}
+		});
+
 		$("#combo_tintas").change(function (){
 			var valor=$(this).val();
 			if(valor!="vacio"){
-				if(valor!="0"){
-					alert("preguntar el tipo de color pantone o rgb");
+				if(valor!="no"){
+					//Modal_demo 
+					$("#label_tintas").html("Tintas <i style='cursor:pointer;color:blue;' data-toggle='modal' data-target='#Modal_demo' class='fa fa-edit'></i>");
+					$("#Modal_demo").modal({
+						fadeDuration: 100,
+						backdrop: 'static',
+						keyboard: false
+					  });
+				}
+				else{
+					$("#label_tintas").html("Tintas");
+					arreglo_tipo = [];
+					arreglo_color = [];
+					arreglo_cantidad= [];
+					$("#cuerpo_tintas ").html("");
 				}
 			}
-			
+			else{
+				$("#label_tintas").html("Tintas");
+				arreglo_tipo = [];
+				arreglo_color = [];
+				arreglo_cantidad= [];
+				$("#cuerpo_tintas ").html("");
+			}
 		});
+
+
+		$("#combo_grapas").change(function (){
+			var valor=$(this).val();
+			if(valor!="vacio"){
+				if(valor!="no"){
+					//Modal_demo 
+					$("#label_grapas").html("Grapas <i style='cursor:pointer;color:blue;' data-toggle='modal' data-target='#Modal_grapas' class='fa fa-edit'></i>");
+					$("#Modal_grapas").modal({
+						fadeDuration: 100,
+						backdrop: 'static',
+						keyboard: false
+					  });
+				}
+				else{
+					$("#label_grapas").html("Grapas");
+					grapas_tamaño = [];
+					grapas_cantidad = [];
+					$("#cuerpo_grapas ").html("");
+				}
+			}
+			else{
+				$("#label_grapas").html("Grapas");
+				grapas_tamaño = [];
+				grapas_cantidad = [];
+				$("#cuerpo_grapas ").html("");
+			}
+		});
+
+		$("#combo_tarimas").change(function (){
+			var valor=$(this).val();
+			if(valor!="vacio"){
+				if(valor!="no"){
+					//Modal_demo 
+					$("#label_tarimas").html("Tarimas <i style='cursor:pointer;color:blue;' data-toggle='modal' data-target='#Modal_tarimas' class='fa fa-edit'></i>");
+					$("#Modal_tarimas").modal({
+						fadeDuration: 100,
+						backdrop: 'static',
+						keyboard: false
+					  });
+				}
+				else{
+					$("#label_tarimas").html("Tarimas");
+					//reset form tarimas
+					alert("reset form tarimas");
+					
+				}
+			}
+			else{
+				$("#label_tarimas").html("Grapas");
+				alert("reset form tarimas");
+			}
+		});
+
+		$('#btn_ok_grapas').on('click',function(){
+			if(grapas_cantidad.length==0){
+				Swal.fire({
+					title: '¿Desea cancelar las grapas?',
+					text: "No se ha agregado ninguna grapa",
+					type: 'warning',
+					showCancelButton: true,
+					confirmButtonColor: '#3085d6',
+					cancelButtonColor: '#d33',
+					confirmButtonText: 'Si, cancelar',
+					cancelButtonText: 'NO'
+				  }).then((result) => {
+					console.log(result);
+					if (result.value) {
+						$("#label_grapas").html("Grapas");
+						grapas_tamaño = [];
+						grapas_cantidad = [];						
+						$("#cuerpo_grapas").html("");
+						$("#combo_grapas").val("no");
+						$("#close_grapas").click();
+					}
+				  })
+			}
+			else{
+				$("#close_grapas").click();
+			}
+		});
+
+		$("#tabla_tintas").delegate(".btn_borrar_tinta", 'click', function (){
+			var id=$(this).attr("id");
+			id=id-1;
+			arreglo_tipo.splice(id,1);
+			arreglo_color.splice(id,1);
+			arreglo_cantidad.splice(id,1);
+			num=1;
+			var datos="";
+			for(var r=0;r<=arreglo_tipo.length-1;r++){
+				datos=datos+"<tr id='fila_"+num+"'><td>Tinta "+num+": </td><td>"+arreglo_tipo[r]+"</td><td>"+arreglo_color[r]+"</td><td>"+arreglo_cantidad[r]+"ml</td><td><i id='"+num+"' class='btn_borrar_tinta btn btn-danger fa fa-trash'></i></td></tr>";
+				num++;
+			}
+			$("#cuerpo_tintas").html(datos);
+		});
+
+		$("#btn_add_tintas").on("click",function (){			  
+			var cuerpo=$("#cuerpo_tintas").html();
+			var tipo=$('#combo_tipo_tinta').val();
+			var color=$('#txt_color_tinta').val();
+			var cantidad=$('#txt_cantidad_tinta').val();
+			var bandera=true;
+			var mensaje="";
+			if(tipo=="vacio"){
+				mensaje="Debe seleccionar un tipo de tinta";
+				bandera=false;
+			}
+			else if(color==""){
+				mensaje="Debe ingresar un color";
+				bandera=false;
+			}
+			else if(cantidad==""){
+				mensaje="Debe ingresar una cantidad";
+				bandera=false;
+			}
+			if(!bandera){
+				$('#mensaje_tintas').html('<div class="alert alert-danger col-sm-11" role="alert"><strong >'+mensaje+'</strong></div>');
+				$('#mensaje_tintas').show();
+				remove_alert();
+			}
+			else{
+				var contador_tintas = $('#cuerpo_tintas tr').length;
+				contador_tintas++;
+				var datos="<tr id='fila_"+contador_tintas+"'><td>Tinta "+contador_tintas+": </td><td>"+tipo+"</td><td>"+color+"</td><td>"+cantidad+"ml</td><td><i id='"+contador_tintas+"' class='btn_borrar_tinta btn btn-danger fa fa-trash'></i></td></tr>";
+				cuerpo=cuerpo+datos;
+				arreglo_tipo.push(tipo);
+				arreglo_color.push(color);
+				arreglo_cantidad.push(cantidad);
+				$("#cuerpo_tintas").html(cuerpo);
+				$('#combo_tipo_tinta').val('vacio');
+				$('#txt_color_tinta').val('');
+				$('#txt_cantidad_tinta').val('');
+			}
+		});
+
+		$("#btn_add_grapas").on("click",function (){			  
+			var cuerpo=$("#cuerpo_grapas").html();
+			var tamaño=$('#combo_tamaño_grapa').val();
+			var cantidad=$('#txt_cantidad_grapa').val();
+			var bandera=true;
+			var mensaje="";
+			if(tamaño=="vacio"){
+				mensaje="Debe seleccionar un tamaño de grapa";
+				bandera=false;
+			}
+			else if(cantidad==""){
+				mensaje="Debe ingresar una cantidad";
+				bandera=false;
+			}
+			if(!bandera){
+				$('#mensaje_grapas').html('<div class="alert alert-danger col-sm-11" role="alert"><strong >'+mensaje+'</strong></div>');
+				$('#mensaje_grapas').show();
+				remove_alert();
+			}
+			else{
+				var contador_grapas = $('#cuerpo_grapas tr').length;
+				contador_grapas++;
+				var datos="<tr id='fila_"+contador_grapas+"'><td>"+contador_grapas+": </td><td>"+tamaño+"</td><td>"+cantidad+"</td><td><i id='"+contador_grapas+"' class='btn_borrar_grapas btn btn-danger fa fa-trash'></i></td></tr>";
+				cuerpo=cuerpo+datos;
+				grapas_tamaño.push(tamaño);
+				grapas_cantidad.push(cantidad);
+				$("#cuerpo_grapas").html(cuerpo);
+				$('#combo_tamaño_grapa').val('vacio');			
+				$('#txt_cantidad_grapa').val('');
+			}
+		});
+
+		$("#tabla_grapas").delegate(".btn_borrar_grapas", 'click', function (){
+			var id=$(this).attr("id");
+			id=id-1;
+			grapas_tamaño.splice(id,1);
+			grapas_cantidad.splice(id,1);
+			num=1;
+			var datos="";
+			for(var r=0;r<=grapas_cantidad.length-1;r++){
+				datos=datos+"<tr id='fila_"+num+"'><td>"+num+": </td><td>"+grapas_tamaño[r]+"</td><td>"+grapas_cantidad[r]+"</td><td><i id='"+num+"' class='btn_borrar_grapas btn btn-danger fa fa-trash'></i></td></tr>";
+				num++;
+			}
+			$("#cuerpo_grapas").html(datos);
+		});
+
+
+
+
+		function remove_alert(){
+			window.setTimeout(function() {
+				$(".alert").fadeTo(500, 0).slideUp(500, function(){
+				$(this).remove();
+			});
+			}, 5000); 
+		}
+		
+		
 
 		$("#combo_componentes").change(function (){
 			var valor=$(this).val();
@@ -403,3 +650,4 @@
 			}
 		});
 
+	}
