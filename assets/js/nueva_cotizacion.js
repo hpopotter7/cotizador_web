@@ -211,7 +211,7 @@ function inicio(){
 			}
 			
 			
-	$('#editModalItem').on('show.bs.modal', function (event) {
+	/* $('#editModalItem').on('show.bs.modal', function (event) {
 	  var button = $(event.relatedTarget) // Button that triggered the modal
 	  var codigo = button.data('codigo')
 	  var cantidad = button.data('cantidad')
@@ -227,7 +227,7 @@ function inicio(){
 	  modal.find('.modal-body #precio_item').val(precio)
 	  modal.find('.modal-body #descuento_item').val(descuento)
 	  modal.find('.modal-body #id_tmp').val(id)
-	})
+	}) */
 	
 	
 	$( "#editar_item" ).submit(function( event ) {
