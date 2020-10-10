@@ -61,6 +61,7 @@
 					<th>Contacto</th>
                     <th>Correo de contacto</th>
                     <th>Teléfono</th>
+                    <th>Cliente</th>
 					<th class="text-right">Acciones</th>
 										
 				</tr>
@@ -74,16 +75,24 @@
                     $nombre_contacto=$row['Contacto'];
                     $correo_contacto=$row['Correo_contacto'];
                     $telefono=$row['Telefono'];
+                    $prospecto=$row['Prospecto'];
 					?>
 					<tr>
 						<td><? echo $id_cliente; ?></td>
 						<td><? echo $nombre_cliente; ?></td>
-						<td ><? echo $rfc; ?></td>
-                        <td ><? echo $giro; ?></td>
-                        <td ><? echo $direccion; ?></td>
-                        <td ><? echo $nombre_contacto; ?></td>
-                        <td ><? echo $correo_contacto; ?></td>
-                        <td ><? echo $telefono; ?></td>
+						<td><? echo $rfc; ?></td>
+                        <td><? echo $giro; ?></td>
+                        <td><? echo $direccion; ?></td>
+                        <td><? echo $nombre_contacto; ?></td>
+                        <td><? echo $correo_contacto; ?></td>
+                        <td><? echo $telefono; ?></td>
+                        <td>
+							<?php if ($prospecto == 0) { ?>
+								<i class="fas fa-check" style='color:green'></i>
+							<?php } else { ?>
+								<i class="fas fa-times" style='color:red'></i>
+							<?php } ?>	
+						</td>
                         <td>
                         <div class="float-right">
                         <a href="#" title="Editar cliente" onclick="obtener_datos('<? echo $id_cliente; ?>');" data-toggle="modal" data-target="#myModal2"><i class="fa fa-edit fa-2x"></i></a>
