@@ -18,6 +18,7 @@ if ($result = $con->query($sql)) {
                     	'contacto'=>$row['Contacto'],
                     	'correo_contacto'=>$row['Correo_contacto'],
                     	'telefono'=>$row['Telefono'],
+                    	'prospecto'=>$row['Prospecto'],
         	);
     }
     /* cerramos la conexion */
