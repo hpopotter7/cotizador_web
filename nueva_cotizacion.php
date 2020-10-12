@@ -16,6 +16,8 @@
     <title>Nueva cotización - Cotizador Web</title>
     <!-- Bootstrap Core CSS -->
     <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    
     <!-- Custom CSS -->
     <link href="assets/css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
@@ -29,10 +31,10 @@
     <link href="assets/css/jquery.steps.css" rel="stylesheet">
     <!--<link href="assets/css/tootik.min.css" rel="stylesheet">-->
     <link href="assets/css/protip.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/tooltipster/dist/css/tooltipster.bundle.css" />
-    <link rel="stylesheet" href="assets/tooltipster/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-borderless.min.css" />
+    
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
-      
+    
+    
 <!-- <link href="assets/css/estilos_tabs.css" rel="stylesheet"> -->
 
 <style>@-webkit-keyframes swal2-show {
@@ -1865,6 +1867,15 @@ body.swal2-no-backdrop .swal2-shown {
                               <option value='acrilico'>Acrilico</option>
                             </select>
                           </div>
+                          <div class="form-group">
+                          <label for="exampleSelectMultiple" id="label_maquinaria">Maquinaria</label>
+                          <select class="form-control" id="combo_maquinaria">
+                            <option value='vacio'>Selecciona...</option>
+                            <option value='suajadora'>Suajadora plana</option>
+                            <option value='cortadora'>Cortadora</option>
+                            <option value='glicol'>Glicol</option>
+                          </select>
+                        </div>
                       </div>
                       <div class="col-md-2"> 
                         <div class="form-group">
@@ -1908,7 +1919,32 @@ body.swal2-no-backdrop .swal2-shown {
                           </select>
                         </div>
                       </div>
+                      <div class="col-md-2"> 
+                        <div class="form-group">
+                          <label for="exampleSelectMultiple" id="label_tarimas">Herramental</label>
+                          <select class="form-control" id="combo_herramental">
+                            <option value='vacio'>Selecciona...</option>
+                            <option value='transferencia'>Trasferencia</option>
+                            <option value='compra'>Compra</option>
+                          </select>
+                        </div>
+                      </div>
                      </div>
+
+                    <!-- <div class='row' style="width: 100%;">
+                     <div class="col-md-2"> 
+                        <div class="form-group">
+                          <label for="exampleSelectMultiple" id="label_tarimas">Tipo de herramental</label>
+                          <select class="form-control" id="combo_herramental">
+                            <option value='vacio'>Selecciona...</option>
+                            <option value='suaje'>Suaje</option>
+                            <option value='grabado'>Grabado</option>
+                            <option value='sello'>Sello</option>
+                            <option value='pantalla'>Pantalla</option>
+                          </select>
+                        </div>
+                      </div></div>-->
+                      
                     </section>
                     <h3><i class="fa fa-truck" aria-hidden="true"></i> Flete</h3>
                     <section>
@@ -1924,19 +1960,60 @@ body.swal2-no-backdrop .swal2-shown {
                       </div>
                       <div class="col-md-2">                  
                         <div class="form-group">
-                          <label for="exampleSelectMultiple">Proveedor</label>
+                          <label for="exampleSelectMultiple">Tipo de transporte</label>
                           <select class="form-control" id="exampleSelectMultiple">
                             <option>Selecciona...</option>
                             <option>Cliente</option>
                             <option>Propio</option>
+                            <option>Caja seca</option>
+                            <option>Plataforma</option>
+                            <option>1 Ton</option>
+                            <option>3 1/2 Ton</option>
+                            <option>Lowboy</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-2">                  
+                        <div class="form-group">
+                          <label for="exampleSelectMultiple">Proveedor</label>
+                          <select class="form-control" id="exampleSelectMultiple">
+                            <option>Selecciona...</option>
                             <option>Prov 1</option>
-                            <option>Prov 2 suajada</option>
+                            <option>Prov 2</option>
+                            <option>Prov 3</option>
+                            <option>Prov 4</option>
                           </select>
                         </div>
                         <div class="form-group">
                           <label for="exampleSelectMultiple">Costo x Km</label>
-                          <input type="text" class='form-control disabled' disabled="disabled"> 
-                          <small id="help_caracteristicas" class="form-text text-muted">Rango: 0km- 300km</small>
+                          <input type="text" class='form-control'> 
+                        </div>
+                      </div>
+                    </section>
+                     <h3><i class="fas fa-hand-holding-usd" aria-hidden="true"></i> Gastos Administrativos</h3>
+                    <section>
+                      <div class="col-md-2">                  
+                        <div class="form-group">
+                          <label for="exampleSelectMultiple">??????</label>
+                          <select class="form-control" id="exampleSelectMultiple">
+                            <option>Selecciona...</option>
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                            <option>Option 3</option>
+                            <option>Option 4</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-2">                  
+                        <div class="form-group">
+                          <label for="exampleSelectMultiple">Mano de obra</label>
+                         <input type="text" class='form-control' placeholder="0.0231 x ciclo">
+                        </div>
+                      </div>
+                      <div class="col-md-2">                  
+                        <div class="form-group">
+                          <label for="exampleSelectMultiple">Scrap</label>
+                         <input type="text" class='form-control' placeholder="1%">
                         </div>
                       </div>
                     </section>
@@ -1947,51 +2024,65 @@ body.swal2-no-backdrop .swal2-shown {
 								<div id="resultados2" class="col-md-12" style="margin-top:10px"></div><!-- Carga los datos ajax -->
 								<div id="resultados" class="col-md-12" style="margin-top:10px"><div class="table-responsive">
 <table class="table">
-<tbody><tr>
-<th>#</th>
-  <th>COMPONENTE</th>
-  <th>METERIAL COMPLEMENTARIO</th>
-	<th class="text-center">CANTIDAD MENSUAL</th>
-	<th class="text-right">COSTO UNIT.</th>
-  <th class="text-right">COSTO TOTAL.</th>	
-  <th>Acciones</th>
-</tr>
-		<tr class="">
-    <td>1</td>
-		<td><span style='cursor: pointer;padding: 10px;font-size: 1em;color:#fff' class="pop label label-info" style='opacity:1 !important;' title="!">Caja</span></td>
-    <!-- <span data-tootik="Dimensiones: 123mm x 123mm x 123m. Material primario:Carton ." data-tootik-conf="warning multiline" style='cursor:pointer'>Caja</span> -->
-      <td><span style='cursor: pointer;padding: 10px;font-size: 1em;color:#fff' class="pop label label-info" style='opacity:1 !important;' title="!">Silicon</span></td>
-			<td class="text-center">1,000</td>
-			<td class="text-right">$ 2.45</td>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>COMPONENTE</th>
+      <th>METERIAL COMPLEMENTARIO</th>
+      <th class="text-center">CANTIDAD MENSUAL</th>
+      <th class="text-right">COSTO UNIT.</th>
+      <th class="text-right">COSTO TOTAL.</th>	
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+		<tr >
+      <td>1</td>
+      <td> Caja</td>
+      <td>
+          <a tabindex="0"
+          class="btn btn-info" 
+          role="button" 
+          data-html="true" 
+          data-toggle="tooltip" 
+          data-trigger="hover"        
+          title="<b>Example popover</b> - content<br>mas contenido<br>otra linea">Silicon</a>
+      </td>
+      <td class="text-center">1000 (piezas)</td>
+      <td class="text-right">$ 2.45</td>
       <td class="text-right">$ 2,450.00</td>
-      <td><a href="#editModalItem" class='btn btn-info' data-toggle="modal" data-codigo="123" data-cantidad="1" data-descripcion="Producto de prueba" data-descuento="0.00" data-precio="99.00" data-id="1232"><i class="fa fa-edit"></i></a> 
-				<a href="#" onclick="eliminar('0')" class='btn btn-danger'><i class="fa fa-trash"></i></a></td>
-		</tr>		
+      <td>
+        <a href="#editModalItem" class='btn btn-info' data-toggle="modal" data-codigo="123" data-cantidad="1" data-descripcion="Producto de prueba" data-descuento="0.00" data-precio="99.00" data-id="1232"><i class="fa fa-edit"></i></a> 
+        <a href="#" onclick="eliminar('')" class='btn btn-danger'><i class="fa fa-trash"></i></a>
+      </td>
+    </tr>
+    		
+    
 		<tr>
-	<td colspan="5" class="text-right">SUBTOTAL:</td>
-	<td class="text-right">$ 2,450.00 </td>
-</tr>
-<tr>
-	<td colspan="5" class="text-right"><select class='form-control' style='width:5%'><option>20%</option></select> UTILIDAD:</td>
-	<td class="text-right">$ 490.00</td>
-</tr>
-<tr>
-	<td colspan="5" class="text-right">FLETE:</td>
-	<td class="text-right">$ 5,990.00</td>
-</tr>
-<tr>
-	<td colspan="5" class="text-right">TOTAL:</td>
-	<td class="text-right">$ 7,940.00</td>
-</tr>
-<tr>
-	<td colspan="5" class="text-right">
-		IVA:	</td>
-	<td class="text-right">$ 470.40</td>
-</tr>
-<tr>
-	<td colspan="5" class="text-right">TOTAL $</td>
-	<td class="text-right">$ 3,410.40</td>
-</tr>
+    <td colspan="5" class="text-right">SUBTOTAL:</td>
+    <td class="text-right">$ 2,450.00 </td>
+    </tr>
+    <tr>
+      <td colspan="5" class="text-right"><input type='number' min='10' max='50' class='form-control' value='20' style='width:7%'> %  UTILIDAD:</td>
+      <td class="text-right">$ 490.00</td>
+    </tr>
+    <tr>
+      <td colspan="5" class="text-right">FLETE:</td>
+      <td class="text-right">$ 5,990.00</td>
+    </tr>
+    <tr>
+      <td colspan="5" class="text-right">TOTAL:</td>
+      <td class="text-right">$ 7,940.00</td>
+    </tr>
+    <tr>
+      <td colspan="5" class="text-right">
+        IVA:	</td>
+      <td class="text-right">$ 470.40</td>
+    </tr>
+    <tr>
+    <td colspan="5" class="text-right">TOTAL $</td>
+    <td class="text-right">$ 3,410.40</td>
+  </tr>
 </tbody></table>
 <div class="float-right">
                   <button type="submit" class="btn btn-success">
@@ -2047,8 +2138,11 @@ body.swal2-no-backdrop .swal2-shown {
   <!--<script src="assets/js/jquery.cookie-1.3.1.js"></script>-->
   
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="assets/plugins/bootstrap/js/popper.min.js"></script>
-    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!--<script src="assets/plugins/bootstrap/js/popper.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!--<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="assets/js/jquery.slimscroll.js"></script>
     <!--Wave Effects -->
@@ -2065,13 +2159,12 @@ body.swal2-no-backdrop .swal2-shown {
     <script type="text/javascript" src="assets/js/VentanaCentrada.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 	
+
 	
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="assets/plugins/summernote/dist/summernote-bs4.min.js"></script>
   <script src="assets/js/jquery.steps.js"></script>
   
-    <script src="assets/tooltipster/dist/js/tooltipster.bundle.js"></script>
+    
     <script type="text/javascript" src="assets/js/nueva_cotizacion.js"></script>
     <script>
      $(document).on("ready",inicio);

@@ -42,6 +42,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Costo unitario</span>
+                                    </div>
+                                    <input type="number" class='form-control'>
+                                </div>
+                            </div>
                             <div class='row' id='mensaje_tintas' style='display: none'>
                                 
                             </div>
@@ -115,6 +123,14 @@
                                     <input type="text" class='form-control' id='txt_cantidad_grapa'>
                                 </div>
                             </div>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Costo unitario</span>
+                                    </div>
+                                    <input type="number" class='form-control'>
+                                </div>
+                            </div>
                             <div class='row' id='mensaje_grapas' style='display: none'>
                                 
                             </div>
@@ -155,7 +171,7 @@
 
 <div class="modal fade" id="Modal_tarimas" tabindex="-1" role="dialog" aria-labelledby="label_tarimas">
     <!-- <div class="modal-dialog modal-lg" role="document" style=" max-width: 80% !important;"> -->
-        <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" id="close_tarimas" style='display:none;' data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -209,13 +225,194 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Costo unitario</span>
+                                    </div>
+                                    <input type="number" class='form-control'>
+                                </div>
+                            </div>
                             <div class='row' id='mensaje_tarima' style='display: none'>
                             </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button id='btn_ok_tarima' type="button" class="btn btn-primary" >Aceptar</button>
+                <button id='btn_ok_tarima' type="button" class="btn btn-primary" data-dismiss="modal" >Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--fin modal tarimas-->
+
+<!--inicio modal herramental-->
+
+<div class="modal fade" id="Modal_herramental" tabindex="-1" role="dialog" aria-labelledby="label_herramental">
+    <!-- <div class="modal-dialog modal-lg" role="document" style=" max-width: 80% !important;"> -->
+        <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" id="close_herramental" style='display:none;' data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="label_demo"><i class="fa fa-road" aria-hidden="true"></i>  Herramental</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class='row'>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Tipo de compra</span>
+                                    </div>
+                                    <select class="form-control" id="combo_tipo_compra" name="combo_tipo_compra">
+                                        <option value="vacio">Selecciona...</option>
+                                        <option value="diferido">Diferido</option>
+                                        <option value="contado">Contado</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Meses a diferir</span>
+                                    </div>
+                                    <input type="text" class='form-control'>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Costo unitario / meses</span>
+                                    </div>
+                                    <input type="text" class='form-control disabled' disabled='disabled'>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Tipo de herramental</span>
+                                    </div>
+                                    <select class="form-control" id="combo_tipo_herramental" name="combo_tipo_herramental">
+                                        <option value="vacio">Selecciona...</option>
+                                        <option value="suaje">Suaje</option>
+                                        <option value="grabado">Grabado</option>
+                                        <option value="sello">Sello</option>
+                                        <option value="pantalla">Pantalla</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Tipo de herramental</span>
+                                    </div>
+                                    <select class="form-control" id="combo_tipo_herramental" name="combo_tipo_herramental">
+                                        <option value="vacio">Selecciona...</option>
+                                        <option value="dentada">Dentada</option>
+                                        <option value="afilada">Afilada</option>
+                                        <option value="inversa">Inversa</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Metros x tipo de pleca</span>
+                                    </div>
+                                    <input type="text" class='form-control'>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Costro x tipo de pleca</span>
+                                    </div>
+                                    <input type="text" class='form-control'>
+                                </div>
+                            </div>
+                            
+                            <div class='row' id='mensaje_herramental' style='display: none'>
+                            </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id='btn_ok_herramental' type="button" class="btn btn-primary" data-dismiss="modal" >Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--fin modal herramental-->
+
+<!--inicio modal maquinaria-->
+
+<div class="modal fade" id="Modal_maquinaria" tabindex="-1" role="dialog" aria-labelledby="label_maquinaria">
+    <!-- <div class="modal-dialog modal-lg" role="document" style=" max-width: 80% !important;"> -->
+        <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" id="close_herramental" style='display:none;' data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="label_demo"><i class="fa fa-truck" aria-hidden="true"></i> Maquinaria</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class='row'>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Costo de set-up</span>
+                                    </div>
+                                    <input type="text" class='form-control'>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default"># de corridas/pasadas</span>
+                                    </div>
+                                    <input type="text" class='form-control'>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Costo manual/corrida</span>
+                                    </div>
+                                    <input type="text" class='form-control'>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Costo x pieza</span>
+                                    </div>
+                                    <input type="text" class='form-control disabled' disabled="disabled">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Tiempo de ciclo</span>
+                                    </div>
+                                    <input type="text" class='form-control'>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Horas de trabajo/mes</span>
+                                    </div>
+                                    <input type="text" class='form-control disabled' disabled="disabled">
+                                </div>
+                            </div>
+                            <div class='row' id='mensaje_maquinaria' style='display: none'>
+                            </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id='btn_ok_maquinaria' type="button" class="btn btn-primary" data-dismiss="modal" >Aceptar</button>
             </div>
         </div>
     </div>

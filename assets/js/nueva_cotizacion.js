@@ -10,18 +10,10 @@ function inicio(){
 	//load_data();
 	
 	// Example starter JavaScript for disabling form submissions if there are invalid fields
-	$('.pop').tooltipster({
-		content: $('<div id="mikrah">Dimensiones: 123mm x 124mm x 125mm<br>Material: Carton</div><div id="mikrash">Color: N/A</div>'),
-		animation: 'fade',
-		delay: 200,
-		theme: 'tooltipster-borderless',
-		trigger: 'hover',
-		contentAsHTML: true
-		});
+	
 
-		
-
-		
+		$('[data-toggle="tooltip"]').tooltip();
+				
 
 		$("#datos_cotizacion").submit(function(){
 			VentanaCentrada('./assets/html2pdf/pdf/pdf2.php','Cotizacion','','1024','768','true');
@@ -470,6 +462,21 @@ function inicio(){
 				$("#label_tarimas").html("Grapas");
 				alert("reset form tarimas");
 			}
+		});
+
+		$("#combo_herramental").change(function (){
+			$("#Modal_herramental").modal({
+				fadeDuration: 100,
+				backdrop: 'static',
+				keyboard: false
+			  });
+		});
+		$("#combo_maquinaria").change(function (){
+			$("#Modal_maquinaria").modal({
+				fadeDuration: 100,
+				backdrop: 'static',
+				keyboard: false
+			  });
 		});
 
 		$('#btn_ok_grapas').on('click',function(){
