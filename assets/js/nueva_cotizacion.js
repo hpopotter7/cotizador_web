@@ -15,7 +15,9 @@ function inicio(){
 		$('[data-toggle="tooltip"]').tooltip();
 				
 
-		$("#datos_cotizacion").submit(function(){
+		$("#btn_guardar_cotizacion").on("click",function(){
+			//e.preventDefault();
+			alert("se guarda la cotizacion y se abre el pdf");
 			VentanaCentrada('./assets/html2pdf/pdf/pdf2.php','Cotizacion','','1024','768','true');
 			/*
 		  var id_cliente = $("#id_cliente").val();

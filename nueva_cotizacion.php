@@ -2085,7 +2085,7 @@ body.swal2-no-backdrop .swal2-shown {
   </tr>
 </tbody></table>
 <div class="float-right">
-                  <button type="submit" class="btn btn-success">
+                  <button type="button" id='btn_guardar_cotizacion' class="btn btn-success">
 										  <span class="fa fa-save"></span> Guardar  
 										</button>					
 									</div>
